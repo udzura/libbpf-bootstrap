@@ -50,33 +50,6 @@ int tc_ingress(struct __sk_buff *ctx)
              ((l3->daddr >> 24) & 0xff),
              bpf_ntohs(l4->dest));
 
-  if (bpf_skb_pull_data(ctx, 0) < 0)
-    return TC_ACT_OK;
-        
-  data = (void *)(l4+1);
-  void *cur;
-  char payload[33] = {0};
-  int j = 0;
-  for(int i = 12; i < 12+32;) {
-    cur = data + i;
-    i += 1;
-    if ((void *)(cur) > data_end)
-      return TC_ACT_OK;
-
-    char byte;
-    bpf_probe_read_kernel(&byte, 1, cur);
-    if (byte == 0)
-      break;
-
-    if (byte < 'a') {
-      payload[j] = '.';
-    } else {
-      payload[j] = byte;
-    }
-    j += 1;
-  }
-  bpf_printk("Payload domain = %s", payload);
-
   return TC_ACT_OK;
 }
 
