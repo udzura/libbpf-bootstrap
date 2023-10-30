@@ -10,7 +10,7 @@
 // #include <netinet/in.h>
 #define IPPROTO_UDP 17
 
-const static __u16 target_port = 53;
+__u16 target_port = 53;
 
 SEC("tc")
 int tc_ingress(struct __sk_buff *ctx)
