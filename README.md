@@ -1,5 +1,11 @@
 # libbpf-bootstrap: demo BPF applications
 
+```
+* おことわり
+
+このリポジトリは、本家の　libbpf/libbpf-bootstrap をフォークして ProSec-IT/SECKUN の授業のためのサンプルコードを追加したものです
+```
+
 [![Github Actions](https://github.com/libbpf/libbpf-bootstrap/actions/workflows/build.yml/badge.svg)](https://github.com/libbpf/libbpf-bootstrap/actions/workflows/build.yml)
 
 ## minimal
