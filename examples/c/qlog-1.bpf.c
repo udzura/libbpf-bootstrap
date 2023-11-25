@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause)                                                                                                                                                                  
+// SPDX-License-Identifier: (LGPL-2.1 OR BSD-2-Clause)
 /* Copyright (c) 2022 Hengqi Chen */
 #include <vmlinux.h>
 #include <bpf/bpf_endian.h>
@@ -17,7 +17,7 @@ int tc_ingress(struct __sk_buff *ctx)
   void *data = (void *)(__u64)ctx->data;
   struct ethhdr *l2;
   struct iphdr *l3;
-  // linux/udp.h                                                                                                                                                                                                        
+  // linux/udp.h
   struct udphdr *l4;
 
   if (ctx->protocol != bpf_htons(ETH_P_IP))
